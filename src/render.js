@@ -1,5 +1,5 @@
-const Website = require('./models/Website.js');
+const monitor = require('./views/monitor.js');
 
 module.exports = async function() {
-    console.log(await Website.findAll());
+    monitor();
 }
