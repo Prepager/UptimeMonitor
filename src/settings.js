@@ -5,6 +5,25 @@ const listWebsites = require('./views/listWebsites.js');
 const deleteWebsite = require('./views/deleteWebsite.js');
 
 module.exports = {
+    down: {
+        threshold: 80,
+        duration: (2 * 60),
+    },
+
+    renders: {
+        alerts: 5,
+
+        short: {
+            rate: 10,
+            duration: (10 * 60),
+        },
+
+        long: {
+            rate: 60,
+            duration: (60 * 60),
+        },
+    },
+
     menu: [
         {
             name: 'Start Monitoring',
@@ -33,4 +52,4 @@ module.exports = {
             },
         },
     ],
-}
+};
