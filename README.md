@@ -16,3 +16,10 @@ Run the following:
 ```
 node index.js
 ```
+
+## Run Tests
+Run one of the following:
+```
+yarn test
+npm test
+```
