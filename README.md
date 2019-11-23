@@ -1,5 +1,6 @@
-# Uptime Monitoring
-Made for Datadog intership assignment.
+# Uptime Monitoring - For Datadog intership assignment.
+Simple uptime monitoring console application made in NodeJS.
+Provides user interface for creating, updating, and deleting sites, by saving them to a SQLite database. 
 
 ## Prerequisites
 - NodeJS
@@ -12,9 +13,10 @@ npm install
 ```
 
 ## Execute Program
-Run the following:
+Run one of the following:
 ```
-node index.js
+yarn start
+npm start
 ```
 
 ## Run Tests
@@ -23,3 +25,11 @@ Run one of the following:
 yarn test
 npm test
 ```
+
+## Possible Improvements
+- Extended unit testing.
+- Better user-interface (website?).
+- Hide alerts after some user-defined delay.
+- Use the database ORM features to a larger degree.
+- Threading to prevent intervals being delayed by blocking code.
+- Split analytics logic out into own files to make it more maintainable.
