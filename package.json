@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^3.0.0",
+    "readline-sync": "^1.4.10",
     "sequelize": "^5.21.2",
     "sqlite3": "^4.1.0"
   }
