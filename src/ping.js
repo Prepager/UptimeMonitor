@@ -41,7 +41,7 @@ module.exports = class Ping {
             const online = error === null && success;
 
             // Add request to database.
-            Request.create({ code, delay, online, website_id: site.id });
+            Request.create({ code, delay, online, website_id: site.id, created_at: start });
         });
     }
 

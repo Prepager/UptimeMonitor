@@ -32,7 +32,7 @@ module.exports = async function() {
 /**
  * Render the monitoring status.
  */
-function render(resolve) {
+async function render(resolve) {
     // Clear menu text.
     console.clear();
 
@@ -40,7 +40,7 @@ function render(resolve) {
     const settings = require('../settings.js');
 
     // Show initial short render.
-    status(settings.renders.short.duration);
+    await status(settings.renders.short.duration);
     requestToReturn(resolve);
 
     // Start long and short render intervals.
@@ -56,9 +56,9 @@ function render(resolve) {
  * Start render for passed setting.
  */
 function startRender(resolve, setting, callback) {
-    return setInterval(() => {
+    return setInterval(async () => {
         callback && callback();
-        status(setting.duration);
+        await status(setting.duration);
         requestToReturn(resolve);
     }, setting.rate * 1000);
 }

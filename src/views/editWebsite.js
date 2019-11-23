@@ -11,7 +11,7 @@ module.exports = async function render() {
     // List existing websites.
     const websites = await Website.findAll();
     websites.forEach(option => {
-        console.log((option.id) + '. ' + option.address + ', interval = ' + option.interval);
+        console.log(option.id + '. ' + option.address + ', interval = ' + option.interval);
     });
 
     // Request selection and parse to int.
