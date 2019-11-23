@@ -64,15 +64,10 @@ module.exports = class Ping {
             ],
         });
 
-        // Check if online and has unresolved alert.
-        if (latest && ! latest.resolved && online) {
-            return latest.update({
-                resolved: Date.now(),
-            });
-        }
-
-        // Check if offline and has no alert or already solved.
-        if (! online && (! latest || latest.resolved)) {
+        // Check if can resolve or create.
+        const canResolve = latest && ! latest.resolved && online;
+        const canCreate = ! online && (! latest || latest.resolved);
+        if (canResolve || canCreate) {
             // Find all requests within downtime duration.
             const requests = await Request.findAll({
                 where: {
@@ -86,11 +81,15 @@ module.exports = class Ping {
             // Calculate average uptime.
             let uptime = 0;
             requests.forEach(request => uptime += request.online);
-            uptime = (uptime / request.length) * 100;
+            uptime = (uptime / requests.length) * 100;
 
-            // Create alert if above threshold.
-            if (uptime <= settings.down.threshold) {
-                return Alert.create({
+            // Check if can resolve or create new alert.
+            if (canResolve && uptime >= settings.down.threshold) {
+                await latest.update({
+                    resolved: Date.now(),
+                });
+            } else if (canCreate && uptime <= settings.down.threshold) {
+                await Alert.create({
                     website_id: this.site.id,
                     occurred: Date.now(),
                 });
