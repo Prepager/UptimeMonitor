@@ -9,9 +9,9 @@ module.exports = async function render() {
     console.log('0. Return to menu.');
 
     // List existing websites.
-    const websites = await Website.findAll();
-    websites.forEach(option => {
-        console.log(option.id + '. ' + option.address + ', interval = ' + option.interval);
+    const sites = await Website.findAll();
+    sites.forEach(site => {
+        console.log(site.id + '. ' + site.address + ', interval = ' + site.interval);
     });
 
     // Request selection and parse to int.
@@ -23,17 +23,17 @@ module.exports = async function render() {
     }
 
     // Re-render if selection doesn't exists.
-    const website = websites.find(website => website.id === answer);
-    if (! website) {
+    const site = sites.find(site => site.id === answer);
+    if (! site) {
         return await render(menu);
     }
     
     // Request new data from user.
-    const address = await requestAddress(website);
-    const interval = await requestInterval(website);
+    const address = await requestAddress(site);
+    const interval = await requestInterval(site);
 
     // Update existing website in database.
-    await website.update({ address, interval });
+    await site.update({ address, interval });
 
     // Return back to menu.
     return null;

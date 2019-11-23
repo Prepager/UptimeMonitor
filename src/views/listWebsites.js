@@ -8,9 +8,9 @@ module.exports = async function render() {
     console.log(chalk.blue.bold('——— LIST WEBSITES ———'));
 
     // List existing websites.
-    const websites = await Website.findAll();
-    websites.forEach(option => {
-        console.log(option.id + '. ' + option.address + ', interval = ' + option.interval);
+    const sites = await Website.findAll();
+    sites.forEach(site => {
+        console.log(site.id + '. ' + site.address + ', interval = ' + site.interval);
     });
 
     // Request input to return to menu.
