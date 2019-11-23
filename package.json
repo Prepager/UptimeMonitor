@@ -2,5 +2,9 @@
   "name": "uptime-monitor",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sequelize": "^5.21.2",
+    "sqlite3": "^4.1.0"
+  }
 }
