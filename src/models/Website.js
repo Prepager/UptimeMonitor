@@ -1,5 +1,3 @@
-const Alert = require('./Alert.js');
-const Request = require('./Request.js');
 const Sequelize = require('sequelize');
 const database = require('../database.js');
 
@@ -22,6 +20,3 @@ module.exports = Website.init({
     modelName: 'website',
     underscored: true,
 });
-
-Website.hasMany(Alert);
-Website.hasMany(Request);
