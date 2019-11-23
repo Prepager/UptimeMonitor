@@ -11,8 +11,6 @@ module.exports = {
     },
 
     renders: {
-        alerts: 5,
-
         short: {
             rate: 10,
             duration: (10 * 60),

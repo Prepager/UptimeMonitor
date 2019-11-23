@@ -68,12 +68,11 @@ function startRender(resolve, setting, callback) {
  */
 function requestToReturn(resolve) {
     // Create read line interface.
-    if (! reader) {
-        reader = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout,
-        });
-    }
+    reader && reader.pause();
+    reader = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
 
     // Notify user of press enter to return.
     reader.question(chalk.green('Press enter to return to menu! '), () => {
