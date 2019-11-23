@@ -1,4 +1,8 @@
 const monitor = require('./views/monitor.js');
+const addWebsite = require('./views/addWebsite.js');
+const editWebsite = require('./views/editWebsite.js');
+const listWebsites = require('./views/listWebsites.js');
+const deleteWebsite = require('./views/deleteWebsite.js');
 
 module.exports = {
     menu: [
@@ -7,16 +11,20 @@ module.exports = {
             render: monitor,
         },
         {
+            name: 'List Websites',
+            render: listWebsites,
+        },
+        {
             name: 'Add Website',
-            render: () => { console.log('add'); },
+            render: addWebsite,
         },
         {
             name: 'Edit Website',
-            render: () => { console.log('edit'); },
+            render: editWebsite,
         },
         {
             name: 'Delete Website',
-            render: () => { console.log('delete'); },
+            render: deleteWebsite,
         },
         {
             name: 'Quit Program',
