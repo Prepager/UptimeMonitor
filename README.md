@@ -1,6 +1,6 @@
-# Uptime Monitoring - For Datadog intership assignment.
+# Uptime Monitoring - Datadog internship assignment.
 Simple uptime monitoring console application made in NodeJS.
-Provides user interface for creating, updating, and deleting sites, by saving them to a SQLite database. 
+Provides user interface for creating, updating, and deleting sites, by saving them to an SQLite database. 
 
 ## Prerequisites
 - NodeJS
